@@ -11,6 +11,20 @@ Currently, two official plugins are available:
 
 The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
+## Deploying to GitHub Pages
+
+This project is already configured for GitHub Pages via Vite using the repository path.
+
+1. Make sure the `base` option in `vite.config.ts` is set to `/matilda-mindset/`.
+2. Install dependencies if needed: `npm install`.
+3. Build and deploy with:
+
+```bash
+npm run deploy
+```
+
+The site will publish to `https://divdiv8.github.io/the-matilda-mindset`
+
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:

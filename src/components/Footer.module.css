@@ -1,0 +1,86 @@
+.footer {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 4rem 2.5rem 2rem;
+  margin-top: auto;
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.brand {
+  flex: 2;
+}
+
+.logo {
+  font-family: 'Caveat', cursive;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--yellow);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.sub {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.links {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.linksLabel {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.35);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.links a {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.65);
+  transition: color 0.2s;
+}
+
+.links a:hover {
+  color: var(--yellow);
+}
+
+.bottom {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.3);
+}
+
+.heart {
+  color: var(--orange-light);
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 1.25rem 1.5rem;
+  }
+  .inner {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
