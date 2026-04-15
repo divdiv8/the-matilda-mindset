@@ -1,3 +1,4 @@
+import coverArt from '../assets/cover.png'
 import { showLinks } from '../data'
 import styles from './Hero.module.css'
 
@@ -22,10 +23,8 @@ const YoutubeIcon = () => (
 export default function Hero() {
   return (
     <section className={styles.hero}>
-      {/* decorative blobs */}
       <div className={styles.blob1} />
       <div className={styles.blob2} />
-
       <div className={styles.inner}>
         <div className={styles.textSide}>
           <p className={styles.tag}>✦ A weekly podcast</p>
@@ -52,11 +51,10 @@ export default function Hero() {
             </div>
           </div>
         </div>
-
         <div className={styles.artSide}>
           <div className={styles.artWrapper}>
             <img
-              src="/matilda-mindset/cover.png"
+              src={coverArt}
               alt="The Matilda Mindset podcast cover"
               className={styles.coverArt}
             />
@@ -64,7 +62,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
       <div className={styles.daisyRow}>
         {'✿ ✦ ✿ ✦ ✿ ✦ ✿ ✦ ✿ ✦ ✿ ✦ ✿ ✦ ✿ ✦ ✿'.split(' ').map((d, i) => (
           <span key={i} style={{ animationDelay: `${i * 0.1}s` }}>{d}</span>
