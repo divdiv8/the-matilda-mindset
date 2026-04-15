@@ -35,12 +35,12 @@ export const episodes: Episode[] = [
 
 export const hosts: Host[] = [
   {
-    name: "Divya",
+    name: "D",
     emoji: "🪴",
     bio: "Placeholder — software engineer, overthinker, South Indian food enthusiast. Probably the one spiralling.",
   },
   {
-    name: "Anjali",
+    name: "A",
     emoji: "🎬",
     bio: "Placeholder — movie buff, storyteller, the one who has already watched everything you're about to recommend.",
   },
