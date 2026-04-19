@@ -3,6 +3,8 @@ export interface Episode {
   title: string;
   date: string;
   description: string;
+  transcript: string;
+  showNotes: string;
   spotifyUrl: string;
   appleUrl: string;
   youtubeUrl: string;

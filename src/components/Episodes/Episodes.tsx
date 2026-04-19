@@ -1,5 +1,5 @@
-import { episodes } from '../data'
-import EpisodeCard from './EpisodeCard'
+import { episodes } from '../../static/data'
+import EpisodeCard from '../EpisodeCard/EpisodeCard'
 import styles from './Episodes.module.css'
 
 export default function Episodes() {

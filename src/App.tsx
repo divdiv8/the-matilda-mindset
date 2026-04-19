@@ -1,8 +1,8 @@
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Episodes from './components/Episodes'
-import Hosts from './components/Hosts'
-import Footer from './components/Footer'
+import Navbar from './components/Navbar/Navbar'
+import Hero from './components/Hero/Hero'
+import Episodes from './components/Episodes/Episodes'
+import Hosts from './components/Hosts/Hosts'
+import Footer from './components/Footer/Footer'
 import './App.css'
 
 function App() {

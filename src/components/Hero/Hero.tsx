@@ -1,5 +1,5 @@
 import coverArt from '../assets/cover.png'
-import { showLinks } from '../data'
+import { showLinks } from '../../static/data'
 import styles from './Hero.module.css'
 
 const SpotifyIcon = () => (

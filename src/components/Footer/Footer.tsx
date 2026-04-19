@@ -1,4 +1,4 @@
-import { showLinks } from '../data'
+import { showLinks } from '../../static/data'
 import styles from './Footer.module.css'
 
 export default function Footer() {

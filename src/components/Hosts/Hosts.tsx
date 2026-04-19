@@ -1,4 +1,4 @@
-import { hosts } from '../data'
+import { hosts } from '../../static/data'
 import styles from './Hosts.module.css'
 
 export default function Hosts() {
