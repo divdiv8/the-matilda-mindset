@@ -19,7 +19,7 @@ export default function Episodes() {
 
           {/* Older episodes */}
           {rest.map((ep) => (
-            <EpisodeCard key={ep.number} episode={ep} />
+            <EpisodeCard key={ep.epNumber} episode={ep} />
           ))}
         </div>
       </div>
