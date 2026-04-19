@@ -10,8 +10,8 @@ export default function Navbar() {
       <div className={styles.links}>
         <a href="#episodes">Episodes</a>
         <a href="#about">Hosts</a>
-        <a href={showLinks.spotify} target="_blank" rel="noopener noreferrer" className={styles.listenBtn}>
-          Listen now ↗
+        <a href={showLinks.youtube} target="_blank" rel="noopener noreferrer" className={styles.listenBtn}>
+          Listen now
         </a>
       </div>
     </nav>
