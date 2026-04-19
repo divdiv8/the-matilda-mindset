@@ -1,87 +1,117 @@
-# React + TypeScript + Vite
+# The Matilda Mindset
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> A weekly conversation about life, friendship, and figuring things out.
 
-Currently, two official plugins are available:
+![The Matilda Mindset](docs/screenshot.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🎙️ [thematildamindset.com](https://thematildamindset.com) · [Spotify](https://open.spotify.com/show/21LLDfvzRzW2BH392gZMJr) · [Apple Podcasts](https://podcasts.apple.com/podcast/id1888385475) · [YouTube](https://www.youtube.com/playlist?list=PLt10RAma0oLCsGldRZlHhgXCI1rRBU9GK)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## What this is
 
-## Deploying to GitHub Pages
+The website for The Matilda Mindset podcast. Built from scratch as a learning project — React, TypeScript, and a lightweight AWS data layer so new episodes go live without a redeploy.
 
-This project is already configured for GitHub Pages via Vite using the repository path.
+Episode data lives in S3. The site fetches it at runtime. Push a new episode via the admin panel, refresh the page — it's there.
 
-1. Make sure the `base` option in `vite.config.ts` is set to `/matilda-mindset/`.
-2. Install dependencies if needed: `npm install`.
-3. Build and deploy with:
+---
+
+## Stack
+
+| Layer | Tech |
+|---|---|
+| Frontend | React 18 + TypeScript + Vite |
+| Styling | CSS Modules |
+| Routing | React Router v6 |
+| Hosting | GitHub Pages |
+| CI/CD | GitHub Actions |
+| Data | AWS S3 (`episodes.json`) |
+| API | AWS Lambda (Node.js 22, Function URL) |
+| Auth | AWS Secrets Manager |
+| DNS | AWS Route 53 |
+
+---
+
+## Project structure
+
+```
+src/
+  components/
+    Navbar.tsx
+    Hero.tsx
+    Episodes.tsx
+    EpisodeCard.tsx
+    Hosts.tsx
+    Footer.tsx
+  pages/
+    EpisodePage.tsx       # /episodes/:id
+  types.ts                # Episode, Host interfaces
+  data.ts                 # static content (hosts, show links)
+  App.tsx
+.github/
+  workflows/
+    deploy.yml            # builds + deploys to GitHub Pages on push to main
+docs/
+  design.md               # full system design document
+  screenshot.png
+```
+
+---
+
+## Running locally
 
 ```bash
-npm run deploy
+npm install
+npm run dev
 ```
 
-The site will publish to `https://divdiv8.github.io/the-matilda-mindset`
+Opens at `http://localhost:5173`.
 
-## Expanding the ESLint configuration
+Episode data is fetched from the live S3 bucket at runtime — you'll see real episodes in local dev.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Deploying
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Push to `main`. GitHub Actions handles the rest:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Installs dependencies
+2. Runs `npm run build`  
+3. Deploys `dist/` to GitHub Pages
+
+Live at [thematildamindset.com](https://thematildamindset.com) within ~2 minutes.
+
+---
+
+## Adding a new episode
+
+Episodes are managed via the admin panel *(in progress)*. For now, update `src/data.ts` directly and push.
+
+The full admin flow once built:
+- Fill in episode form at `admin.thematildamindset.com`
+- Hits Lambda → writes to `episodes.json` in S3
+- Public site picks it up on next page load. No redeploy.
+
+---
+
+## Architecture
+
+The short version:
+
+```
+Admin site  →  Lambda  →  S3 (episodes.json)
+                                ↓
+               Public site fetches at runtime
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Full system design including sequence diagrams, data model, and AWS infrastructure breakdown: **[docs/design.md](docs/design.md)**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Why build this instead of using a podcast website builder?
+
+Mainly to learn TypeScript. Also because every template felt like every other podcast site — this one looks like The Matilda Mindset.
+
+---
+
+*Made with ✿*
