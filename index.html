@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+      (function() {
+        var redirect = sessionStorage.redirect; // read the URL 404.html saved
+        delete sessionStorage.redirect;// clean it up so it doesnt affect future visits
+        if(redirect && redirect !== location.href){ // only act if there is a redirect
+          history.replaceState(null, null, redirect);//silently put original URL back in browser bar
+        }
+      })();
+    </script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/src/assets/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

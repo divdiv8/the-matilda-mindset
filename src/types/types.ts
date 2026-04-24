@@ -21,3 +21,9 @@ export interface Host {
   bio: string
   emoji: string
 }
+
+export interface HomePageProps {
+  episodes: Episode[]
+  loading?: boolean
+}
+

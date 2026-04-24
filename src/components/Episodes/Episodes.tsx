@@ -1,12 +1,14 @@
-import { episodes } from '../../static/data'
+
 import EpisodeCard from '../EpisodeCard/EpisodeCard'
 import styles from './Episodes.module.css'
+import { type HomePageProps } from '../../types/types'
 
-export default function Episodes() {
-  const [latest, ...rest] = episodes
-
-  return (
-    <section id="episodes" className={styles.section}>
+export default function Episodes({ episodes, loading }: HomePageProps) {
+    const [latest, ...rest] = episodes
+return (
+    !loading ?
+    //not loading show this
+    (<section id="episodes" className={styles.section}>
       <div className={styles.inner}>
         <div className={styles.header}>
           <span className={styles.tag}>✦ All episodes</span>
@@ -23,6 +25,8 @@ export default function Episodes() {
           ))}
         </div>
       </div>
-    </section>
+    </section>) :
+    //loading then show this
+    (<p className={styles.loading}> Loading .... </p>)
   )
 }

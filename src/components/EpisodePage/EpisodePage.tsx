@@ -1,16 +1,18 @@
 import { useParams, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { useState } from 'react'
-import { episodes } from '../../static/data'
+import { type HomePageProps } from '../../types/types'
 import styles from './EpisodePage.module.css'
 import { SpotifyIcon, AppleIcon, YoutubeIcon } from '../Icons/Icons'
 
-export default function EpisodePage() {
+export default function EpisodePage({ episodes, loading }: HomePageProps) {
   const { id } = useParams<{ id: string }>()
   const [transcriptOpen, setTranscriptOpen] = useState(false)
 
   const episode = episodes.find(e => e.id === id)
-
+  if(loading){
+    return (<p className='loading'> Loading... </p>)
+  }
   if (!episode) {
     return (
       <div className={styles.notFound}>

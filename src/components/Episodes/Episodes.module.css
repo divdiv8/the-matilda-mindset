@@ -51,3 +51,10 @@
     grid-template-columns: 1fr;
   }
 }
+
+.loading{
+  text-align: center;
+  padding-top: 10px;
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+}

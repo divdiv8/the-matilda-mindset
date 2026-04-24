@@ -155,3 +155,10 @@
 @media (max-width: 600px) {
   .page { padding: 2rem 1.25rem 4rem; }
 }
+
+.loading{
+  text-align: center;
+  padding-top: 10px;
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+}
